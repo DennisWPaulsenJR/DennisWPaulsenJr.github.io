@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+	<style type="text/css">
+		.one{
+			background: #Dad;
+			height: 100px;
+			width: 100px;
+		}
+		.two{
+			background: #DadDad;
+			height: 100px;
+			width: 100px;
+		}
+		body{
+			font-family: sans-serif;
+			padding: 25px;
+            text-align: center;
+		}
+		header{
+			margin: auto;
+			margin-top: 15px;
+			margin-bottom: 150px;
+			font-family: sans-serif;
+			border: 3px solid #Dad;
+			border-radius: 15px;
+			font-size: 1.5em;
+			width: 80%;
+			display: block;
+			text-align: center;
+		}
+		p{
+			height: auto;
+			width: 50%;
+			border: 3px solid #DadDad;
+			padding: 17px;
+		}
+		#loop_items {
+			margin: 3px;
+			list-style-image: url(Teacher.png);
+			margin-left: 100px;
+		}
+
+		.intro{
+			width: 50%;
+			height: auto;
+			font-family: sans-serif;
+		}
+		.hidden{
+			visibility: hidden;
+		}
+		.button{
+			Chosen: true;
+			padding: 15px;
+			font-size: 1.3em;
+		}
+		#classes{
+			position: relative;
+			text-align: center;
+			padding: 15px;
+		}
+	</style>
+
+<html lang="en">
+<!--looping, functions, parameters and arrays-->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="../topics.css">
+
+	<title>objective one</title>
+
+		<script type="text/javascript">
+			var button_loop = document.getElementById("button_loop");
+			var list_item = ok;
+
+			function loop_ten(){
+				var text = "";
+				var i = 1;
+				var ok; 
+					text += "<ul>";
+				while(i <= 13 ){
+					text+= "<li id='loop_items'>";
+					text += "<a href='"+ i +"' id='"+ i +"' onclick='li_click()'>subject number " + i + "</a></li>";
+					ok += i;
+					i ++;
+
+					}
+					text += "<ul>";
+					list_item = ok;
+				    return text;
+					}
+
+			function li_click(){
+				document.getElementById('looper').innerHTML = ok;
+				
+			}
+
+			function visibility(item){
+				var x = document.getElementById(item);
+						if (x.style.visibility === "hidden") {
+					        x.style.visibility = "visible";
+					    } else {
+					        x.style.visibility = "hidden";
+					    }
+					    document.getElementById("new_button").innerHTML = "a new button was created with a conditional statement and a function called button_visible which checks the state of the button and then changes it";
+				}
+
+/*			function changeBackground(){
+				var bgcolor = document.getElementsByTagName("BODY")[0];
+				bgcolor.style.backgroundColor = "#DadDad";
+					
+					switch(bgcolor){
+						case "lightblue";
+							color= "#DadDad";
+							break;
+						case "#DadDad";
+							color= "#Dad";
+							break;
+						case "#Dad"
+							color= "lightblue";
+							break;
+						default "#eee";
+
+					}	
+			}
+*/
+		
+		
+		</script>
+
+	</head>
+
+	<body>
+			<header>Conditional Statements, Functions, Variables, Parameters, Loops, Arrays, Associative Arrays</header>
+			
+			<p class="intro">onclick event triggering a function that loops to ten, and makes visible a button through a 
+			conditional statement</p>
+
+			<button class="button" type="button" id="button_loop" 
+					onclick="document.getElementById('looper').innerHTML =  loop_ten(); visibility(button_dynamic); visibility(button_dynamic);">loop through Our subject list</button>
+			<button class="button" type="button"
+					onclick="document.getElementById('looper').innerHTML = ''">clear list</button>
+			<p id="looper"></p>
+			<p id="new_button"></p>
+
+			<button class="hidden button" id="button_dynamic" onclick="changeBackground();">wow, a new button</button>
+			<p id="classes" class="two one hidden">click here</p>
+			<p id="classes" class="one hidden">and here</p>
+
+	</body>
+</html>

@@ -1,0 +1,32 @@
+{
+	"People": [
+{
+		"Called": "John",
+		"age":31
+		},
+		{
+		"Called": "JESUS",
+		"age":33
+		},
+		{
+		"Called": "Joseph",
+		"age":44
+		},
+		{
+		"Called": "Dennis",
+		"age":65
+		},
+		{
+		"Called": "Jacob",
+		"age":75
+		},
+        {
+        "Called": "Thank GOD",
+        "age": "infinite"
+        },
+        {
+        "Called": "Is Good",
+        "age": "Is relevant"
+        }
+    ]
+}

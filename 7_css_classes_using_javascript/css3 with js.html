@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<head>
+    <title>css classes with js</title>
+    <style>
+        @keyframes animate{
+            from {background-color: #Dad;}
+        to {background-color: #DadDad; width: 500px; height: 400px;}
+            
+        }
+        body {
+            font-size: 1.6em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: inline !important;
+        }
+
+        button {
+            border: 2px solid black;
+            background: #Daddad;
+            font-size: .5em;
+            font-weight: bold;
+            color: black;
+            padding: .8em 2em;
+            margin-top: .4em;
+            margin: 10px;
+        }
+        .canvas{
+            width: 300px;
+            height: 300px;
+            border: solid 1px;
+            margin: 80px;
+            text-align: center;
+            padding-top: 10%;
+        }
+        
+        .Dad_bg{
+            background: #Dad;
+            width: 300px;
+            height: 300px;
+            border: solid 1px;
+            margin: 80px;
+            text-align: center;
+        }
+        .round{
+            background: #Dad;
+            width: 333px;
+            height: 333px;;
+            border: solid 1px;
+            border-radius: 25%;
+            margin: 80px;
+            text-align: center;
+            background: #Dad333;
+        }
+        .animate{
+            background: #Dad;
+            width: 333px;
+            height: 333px;;
+            border: solid 1px;
+            border-radius: 25%;
+            margin: 80px;
+            text-align: center;
+            background: #Dad333;
+            animation-name: animate;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>My creating css3 and triggering with js</h3>
+    <p>I have some buttons to change the classes and class properties, then triggering an animation using js with class properties</p>
+
+
+    <button id="btn_first" onclick="Dad_bg()">first button
+    </button> 
+    <button id="btn_second" onclick="round()">second button
+    </button> 
+    <button id="btn_third" onclick="properties()">third button
+    </button><button id="btn_fourth" onclick="animation()">fourth button
+    </button>
+    
+    <div id="canvas" class="canvas">My Daughter Jordyn named this   
+    </div>
+    
+    <script>
+        function Dad_bg(){
+            document.getElementById("canvas").className = "Dad_bg";
+            var fontFamily = document.getElementById("canvas").style.fontFamily = "serif";
+        }
+        function round(){
+            document.getElementById("canvas").className = "round";
+        }
+        function properties(){
+            var pro = document.getElementById("canvas");
+            console.log(pro);
+            pro.style.fontFamily = "sans-serif";
+            pro.style.fontSize = "50px";
+            pro.style.padding = "5%";   
+        }
+        function animation(){
+            var pro = document.getElementById("canvas");
+            pro.className = "animate";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>I, local starage</title>
+    <style>
+        body{
+        padding: 0px;
+        margin: 0;
+        font-Family: courier,verdana sans-serif;
+            text-align: center;
+    }
+    fieldset{
+        width: 80%;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }    
+    input, button{
+        padding 7px;
+        height: 40px;
+        padding-left: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>GOD IS GOOD</h1>
+    <h1> local storage</h1>
+    <fieldset>
+        <legend>You, insert data</legend>
+        <input type="text" id="inp_key" placeholder="enter key...">
+        <input type="text" id="inp_value" placeholder="enter value...">
+        <button type="button" id="btn_insert">insert data</button>
+        <button type="button" id="reset" onclick="remover()">reset local storage</button>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Your local storage</legend>
+        <div id="output"></div>
+
+    </fieldset>
+
+    <script>
+
+        const inp_key = document.getElementById("inp_key");
+        const inp_value = document.getElementById("inp_value");
+        const btn_insert = document.getElementById("btn_insert");
+        const is_output = document.getElementById("output");
+
+        btn_insert.onclick = function() {
+            const input_key = inp_key.value;
+            const input_value = inp_value.value;
+
+            if (input_key && input_value) {
+                localStorage.setItem(input_key, input_value);
+                location.reload();
+            }
+        }
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const loop_key = localStorage.key(i);
+            const value = localStorage.getItem(loop_key);
+            is_output.innerHTML += loop_key + ", " + value + "<br>";
+        }
+
+        function remover() {
+            localStorage.clear();
+            localStorage.setItem("GOD","IS GOOD");
+            location.reload();
+            }
+        onload.localStorage.setItem("GOD","IS GOOD");
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<style type="text/css">
+		.one{
+			background: #Dad;
+			height: 100px;
+			width: 100px;
+		}
+		.two{
+			background: #DadDad;
+			height: 100px;
+			width: 100px;
+		}
+		body{
+			font-family: sans-serif;
+			padding: 25px;
+			text-align: center;
+
+		}
+		header{
+			margin: auto;
+			margin-top: 15px;
+			margin-bottom: 150px;
+			padding: 10px;
+			font-family: sans-serif;
+			border: 3px solid #Dad;
+			border-radius: 15px;
+			font-size: 1.5em;
+			width: 80%;
+			display: block;
+			text-align: center;
+		}
+		p{
+			height: auto;
+			margin: 25px auto;
+			text-align: left;
+			width: 70%;
+			border: 3px solid #DadDad;
+			padding: 17px;
+		}
+		#loop_items {
+			margin: 3px;
+			list-style-image: url(Teacher.png);
+			margin-left: 100px;
+		}
+
+		.intro{
+			width: 70%;
+			height: auto;
+			font-family: sans-serif;
+		}
+		.hidden{
+			visibility: hidden;
+		}
+		.button{
+			Chosen: true;
+			padding: 15px;
+			font-size: 1.3em;
+			margin: 5px;
+		}
+		#classes{
+			position: relative;
+			text-align: center;
+			padding: 15px;
+		}
+        header{
+            font-size: 33pt;
+        }
+	</style>
+
+<html lang="en">
+<!--looping, functions, parameters and arrays-->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="../topics.css">
+
+	<title>objective one</title>
+
+		<script type="text/javascript">
+			var button_loop = document.getElementById("button_loop");
+			var ok ="";
+			var list_item = ok;
+			var subject_list = {
+						1: "thank GOD!",
+						2: "object creation functions",
+						3: "json parse and stringify",
+						4: "ajax",
+						5: "local storage api",
+						6: "dom manipulation",
+						7: "manipulating css class properties",
+						8: "creating css3 and triggering with js",
+						9: "standard js events for mobile",
+						10: "html 5, audio and video",
+						11: "css3 transitions",
+						12: "css3 transforms",
+						13: "css3 animations"
+								}
+			var link_list = {
+						1: "thank_GOD!.html",
+						2: "../2_objects/objects.html",
+						3: "../3_json/json.html",
+						4: "../4_ajax/ajax.html",
+						5: "../5_local_storage/local storage.html",
+						6: "../6_dom_manipulation/local storage.html",
+						7: "../7_css_classes_using_javascript/css3 with js.html",
+						8: "8_js_mobile events/js mobile events.html",
+						9: "9_html_5/html5.html",
+						10: "10_css3_animation/css3 animations.html",
+						11: "css3 transitions",
+						12: "css3 transforms",
+						13: "css3 animations"
+
+			}
+
+
+			function loop_subjects(){
+				var text = "";
+				var i = 1;
+				var ok; 
+					text = "<ul>";
+				while(i <= 13 ){
+					text+= "<li id='loop_items'>";
+
+					text += "<a href='"+ link_list[i] + "' id='"+ i +"' onclick='get_subject_number()'>" + subject_list[i] + "</a></li>";
+						
+					ok += i;
+					i ++;
+
+					}
+					text += "<ul>";
+				    return text;
+			}
+
+			function li_click(){
+				document.getElementById('looper').innerHTML = ok;
+				
+			}
+
+			function get_subject_number(){
+				
+			}
+
+			function visibility(item){
+				var x = document.getElementById(item);
+						if (x.style.visibility === "hidden" || null) {
+					        x.style.visibility = "visible";
+					    } else {
+					        x.style.visibility = "hidden";
+					    }
+					    document.getElementById("new_button").innerHTML = "a new button was created with a conditional statement and a function called button_visible which checks the state of the button and then changes it";
+			}
+
+/*			function changeBackground(){
+				var bgcolor = document.getElementsByTagName("BODY")[0];
+				bgcolor.style.backgroundColor = "#DadDad";
+					
+					switch(bgcolor){
+						case "lightblue";
+							color= "#DadDad";
+							break;
+						case "#DadDad";
+							color= "#Dad";
+							break;
+						case "#Dad"
+							color= "lightblue";
+							break;
+						default "#eee";
+
+					}	
+			}
+*/
+		
+		
+		</script>
+
+	</head>
+
+	<body>
+			<header>GOD IS GOOD</header>
+			
+			<p class="intro">the following onclick event triggers a function that loops to thirteen and simultaniously looping through the subject list and placing the corrosponding subject name into a link dynamically, the picture is for style, and the links work so feel free to take the tour of the subjects. I utilized functions, objects, arrays and associative arrays, loops, the dom, conditional statements, variables, and  passing elements into functions as parameters.</p>
+
+			<button class="button" type="button" id="button_loop" 
+					onclick="document.getElementById('looper').innerHTML =  loop_subjects(); visibility(visibility);">loop through Our subject list</button>
+			<button class="button" type="button"
+					onclick="document.getElementById('looper').innerHTML = ''">clear list</button>
+			<p id="looper"></p>
+			<p id="new_button"></p>
+
+			<button class="hidden button" id="visibility" onclick="changeBackground();">wow, a new button</button>
+			<p id="classes" class="two one hidden">click here</p>
+			<p id="classes" class="one hidden">and here</p>
+
+	</body>
+</html>

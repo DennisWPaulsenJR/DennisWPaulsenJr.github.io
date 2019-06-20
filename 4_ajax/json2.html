@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>json2</title>
+</head>
+
+<body>
+    <p style="color: #Dad" id="okay">okay this is fun</p>
+    <hr>
+    
+    
+    
+    <script>
+        var obj1 = {User: "John", age: 32, country: "united states" };
+        var obj2 = {User: "Well", age: 34, country: "united states" };
+        var obj3 = {User: "AbiEL", age: 37, country: "mexico" };
+       
+        var obj4 = {u1:obj1, u2:obj2, u3:obj3};
+        
+        //document.write(obj4.u3.country);
+        
+        var meats = ["beef", "pork", "lamb"];
+        var sides = ["stuffing", "gravy", "olives", "corn"];
+        
+        var obj5 = { arr1:meats, arr2:sides}
+        document.getElementById("okay").innerHTML = obj5.arr1[2];
+        
+        function ajax_get(){
+            var hr = new XMLHttpRequest();
+            hr.open("get","json+list.json", true);
+            hr.setRequestHeader("content-type","application/json", true);
+            hr.onreadystatechange = Function(){
+                if(hr.readyState == 4 && hr.status == 200){
+                    //hr.responseText
+                }
+            }
+            hr.send(null);
+            document.getElementById("okay").innerHTML = "processing";
+        }
+    </script>
+</body>
+
+</html>

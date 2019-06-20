@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <title>transition with css3</title>
+</head>
+<body>
+<style>
+#box1{
+  width: 100px;
+  height: 100px;
+  background-color: #Daddad;
+ transition: width 1000ms, height 1000ms ease-in 333ms;
+}
+
+#input_one {
+	height: 30px;
+}
+
+#box1:hover{
+	animation: r
+}
+</style>
+
+<p>width:
+  <input id="input_one" type="number" step="10" 
+         onchange="box1.style.width=this.value+'px'">
+</p>
+<p>height:
+	<input type="number" id="input_two" step="10" 
+		onchange="box1.style.height=this.value+'px'">
+	</p>
+
+<div id="box1" style="border-radius: 14px";></div>
+
+
+<!-- <script type="text/javascript">
+	box1.style.transitionProperty = "width";
+	box1.style.transitionDuration = "1s";
+	box1.style.transitionTimingFunction = "ease";
+	box1.style.transitionDelay = "0s";
+</script> -->
+
+</body>

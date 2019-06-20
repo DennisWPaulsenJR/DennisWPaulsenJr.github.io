@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<style>
+	button{
+		padding: 10px;
+		margin: 10px;
+	}
+	input{
+		padding: 10px;
+		margin: 10px;
+	}
+	body{
+		font-family: sans-serif;
+		padding: 25px;
+		text-align: center;
+
+	}
+	header{
+		margin: auto;
+		margin-top: 15px;
+		margin-bottom: 150px;
+		padding: 10px;
+		font-family: sans-serif;
+		border: 3px solid #Dad;
+		border-radius: 15px;
+		font-size: 1.5em;
+		width: 80%;
+		display: block;
+		text-align: center;
+	}
+	p{
+		height: auto;
+		margin: 25px auto;
+		text-align: inherit;
+		width: 70%;
+		border: 3px solid #DadDad;
+		padding: 17px;
+	}
+</style>
+</head>
+<body>
+
+<h1>My object creation</h1>
+<p>welcome to the object creation page, these objects are created using javascript through events and functions passing other functions to them, ultimately to produce an object of Your design</p>
+<div id="make_object">
+	<button onclick="start_object()">start object creation</button>
+	<button onclick="window.history.back();">back</button>
+	<p id="paragraph">please press enter after each entry.</p>
+</div>
+
+<script type="text/javascript">
+	var the_object = {name: "", height: "", width: "", weight: "", };
+
+	function start_object(){
+		var input = document.createElement("input");
+		input.setAttribute("type", "text");
+		input.setAttribute("placeholder", "type a name for Your object");
+		input.setAttribute("id", "object_name");
+		input.setAttribute("onchange", "set_name(); make_height()");
+
+		document.body.appendChild(input);
+
+		}
+
+	function set_name(){
+		the_object.name = document.getElementById("object_name").value;
+				alert("You named the object " + the_object.name);
+	}
+
+	function make_height(){
+
+		var height_input = document.createElement("input");
+		height_input.setAttribute("type", "number");
+		height_input.setAttribute("placeholder", "give Your object a height");
+		height_input.setAttribute("id", "object_height");
+		height_input.setAttribute("onchange", "set_height(); make_width()");
+
+
+		document.body.appendChild(height_input);
+		document.getElementById("object_height").focus();
+	}
+
+	function set_height(){
+		the_object.height = document.getElementById('object_height').value;
+		alert(the_object.height);
+	}
+
+	function make_width(){
+		var width_input = document.createElement("input");
+		width_input.setAttribute("type", "number");
+		width_input.setAttribute("placeholder", "give Your object a width");
+		width_input.setAttribute("id", "object_width");
+		width_input.setAttribute("onchange", "set_width(); make_weight()");
+
+		document.body.appendChild(width_input);
+		document.getElementById("object_width").focus();
+	}
+
+	function set_width(){
+		the_object.width = document.getElementById('object_width').value;
+				alert("You gave the object a width of " + the_object.width);
+	}
+
+	function make_weight(){
+
+		var weight_input = document.createElement("input");
+		weight_input.setAttribute("type", "number");
+		weight_input.setAttribute("placeholder", "give Your object a weight");
+		weight_input.setAttribute("id", "object_weight");
+		weight_input.setAttribute("onchange", "set_weight(); output_object()");
+		
+		document.body.appendChild(weight_input);
+		document.getElementById("object_weight").focus();
+	}
+
+	function set_weight(){
+		the_object.weight = document.getElementById('object_weight').value;
+				alert("You gave the object a weight of " + the_object.weight);
+
+	}
+
+	function output_object(){
+		document.getElementById("paragraph").innerHTML = "Your object is named " + the_object.name + "<br>" + "and You chose a height of " + the_object.height + "<br>" + "and the width is " + the_object.width + "<br>" + "and a weight of " + the_object.weight + "<br> now press the back button and check out some more topics";
+			
+
+/*		document.getElementById("output_object").innerHTML = the_object;
+		var output_object = document.createElement("p");
+		output_object.setAttribute("id", "output_object");
+		output_object.appendChild();
+		document.getElementById("output_object").innerHTML = text;
+		output_object.appendChild(the_object);
+		document.body.appendChild(output_object);*/
+	}
+
+</script>
+</body>
+</html>

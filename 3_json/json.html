@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>My json, ajax</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-96x96.png">
+    <link rel="ms-icon" type="image/png" sizes="32x32" href="images/ms-icon-310x310.png">
+    <link rel="manifest" href="images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Righteous');
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: inherit;
+        }
+
+        body {
+            background-color: #eee;
+            color: #333;
+            padding: 34px;
+            margin: 10px;
+            text-align: center;
+            font-family: Righteous, sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: ;
+        }
+
+        button {
+            margin: 25px;
+            padding: 15px;
+            border: solid 1.7px #Dad;
+            border-radius: 25px;
+            border-style: outset;
+            width: 150px;
+        }
+
+
+        div {
+            background-color: #fff;
+            border: 1px solid #777;
+            border-radius: 15px;
+            margin: 65px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 100px;
+            padding: 50px;
+            width: 80%;
+            font-size: 12pt;
+            text-align: center;
+        }
+
+        p {}
+
+        #object {
+            text-align: center;
+        }
+
+        #newParagraph {
+            margin: auto;
+            padding: 25px;
+            border: none;
+            text-align: center;
+        }
+
+        ul {
+            border: 1px solid black;
+        }
+
+        #People_list {
+            list-style-type: none;
+        }
+
+        .HOLY {
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>GOD IS GOOD</h1>
+    <br>
+    <h2>My example of json, ajax</h2>
+
+    <div>
+        <p>I have an example of json, along with the json parse, and stringify. the object is retreived with json, using ajax, and displayed at the various stages of progress.</p>
+    </div>
+    <div>
+        <p id="object">the array of objects looks as such...<br><br>
+            var People = [<br>
+            {"name": "John",
+            age: 31
+            },<br>
+            {
+            "Name": "<b>JESUS</b>",
+            age: <b>33</b>
+            },<br>
+            {
+            "name": "Joseph",
+            age: 44
+            },<br>
+            {
+            "name": "Dennis",
+            "age": 65
+            },<br>
+            {
+            "name": "Jacob",
+            "age": 75
+            }]<br><br>
+            You can open the console and see the data in string form as it is received.
+
+        </p>
+        <button type="button" onclick="getJson()">retreive json file</button>
+
+    </div>
+
+
+    <div>
+        <p id="output">We can retreive the object in the .json file and place it here...</p>
+    </div>
+    <script>
+        var parsed_array = '';
+        var array = '';
+        var People_list = '';
+
+
+
+        function getJson() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(xmlhttp.responseText);
+                    parsed_array = JSON.parse(xmlhttp.responseText);
+                    array = xmlhttp.responseText;
+                    document.getElementById("output").innerHTML = array + "<br><br><br>so We have used ajax to grab data from a .json file using an xmlhttprequest, and it has returned a string, and now We can turn it into an object utilizing the json.parse method and manipulate its values,<br>" + "click the parse button<br><br>";
+                }
+                People_list = parsed_array.People;
+                var button = document.createElement('button');
+                button.innerHTML = "parse";
+                button.setAttribute('id', 'btn_parse');
+                button.setAttribute('onclick', 'getParse()');
+                output.appendChild(button);
+            };
+            xmlhttp.open("GET", "array.json", true);
+            xmlhttp.send();
+        }
+
+        function getParse() {
+            var output = document.getElementById('output');
+            var txt = document.createTextNode('okay, We have generated an object from the string and logged it to the console, it is the People object as shown above, and now We can utilize it in the next paragraph to manipulate data.');
+            document.getElementById('btn_parse').className = "hidden";
+            output.appendChild(txt);
+            makeParagraph();
+        }
+
+        function makeParagraph() {
+            var div = document.createElement('div');
+            document.body.appendChild(div);
+            div.setAttribute('id', 'controls');
+            var paragraph = document.createElement('p');
+            var h3 = document.createElement('h3');
+            var more_text = document.createTextNode("create, append, insertBefore, and remove");
+            h3.appendChild(more_text);
+            var txt = document.createTextNode("We just created an object from string data in a      json formatted file, and in this paragraph We can utilize that object along with the createElement and appendChild methods to interact with that object, please click these buttons from left to right, to make the list, insert Moses into the record");
+            paragraph.setAttribute('id', 'newParagraph');
+            paragraph.appendChild(h3);
+            paragraph.appendChild(txt);
+            div.appendChild(paragraph);
+
+            var obj_paragraph = document.createElement('p');
+            obj_paragraph.setAttribute('id', 'obj_paragraph');
+            div.appendChild(obj_paragraph);
+
+            var button_getlist = document.createElement('button');
+            obj_paragraph.appendChild(button_getlist);
+            button_getlist.setAttribute('onclick', 'Display()');
+            button_getlist.setAttribute('id', 'get_list');
+            button_getlist.innerHTML = "make list";
+            var button_insert = document.createElement('button');
+            button_insert.setAttribute('onclick', 'insert_Moses()');
+            button_insert.setAttribute('id', 'insert');
+            button_insert.innerHTML = "insert Moses";
+            obj_paragraph.appendChild(button_insert);
+            var button_down = document.createElement('button');
+            button_down.setAttribute('onclick', 'remove()');
+            button_down.setAttribute('id', 'move_down');
+            button_down.innerHTML = "remove item";
+            obj_paragraph.appendChild(button_down);
+
+        }
+        
+        
+            var click = "";
+
+        function Display() {
+
+            if (click != true) {
+                var ul = document.createElement('ul');
+                ul.setAttribute('id', 'People_list');
+                var div = document.getElementById('obj_paragraph');
+                div.appendChild(ul);
+
+                console.log(People_list);
+
+                for (a = 0; a < People_list.length; a++) {
+                    document.getElementById('People_list').innerHTML += "<li id=li_" + a + ">" +
+                        People_list[a].Called + "</li>";
+                }
+                const ul_list = document.getElementById('People_list');
+                const John = document.getElementById('li_0');
+                const JESUS = document.getElementById('li_1');
+                JESUS.setAttribute('class', 'HOLY');
+                const Joseph = document.getElementById('li_2');
+                const Dennis = document.getElementById('li_3');
+                const Jacob = document.getElementById('li_4');
+
+                click = true;
+            }
+
+        }
+        
+        
+            var inserted = '';
+
+        function insert_Moses() {
+  
+                if (inserted != true) {
+                    var list = document.getElementById('People_list');
+
+                    const Moses = document.createElement('li');
+                    Moses.setAttribute('id', 'Moses');
+                    Moses.innerHTML = "Moses";
+
+                    list.insertBefore(Moses, list.childNodes[0]);
+                    console.log(list);
+                    //          
+                }
+                inserted = true;
+                var paragraph = document.createElement('p');
+                var txt = document.createTextNode('We have created a list, inserted Moses before the other list items, and We ')
+            }
+       
+        
+        
+            var removed = "";
+
+        function remove() {
+            if (removed != true) {
+                var item = document.getElementById('li_6')
+                item.parentNode.removeChild(item);
+            }
+            removed = true;
+        }
+
+        function make_form() {
+            var div = document.createElement('div');
+            document.body.appendChild(div);
+            div.setAttribute('id', 'ul_paragraph');
+            var para = document.createElement('p');
+            var paratxt = document.createTextNode("text in the paragraph");
+            para.appendChild(paratxt);
+            div.appendChild(para);
+
+            /*          var div = document.createElement('div');
+                        document.body.appendChild(div);
+                        div.setAttribute('id', 'form_div');
+                        var paragraph = document.createElement('p');
+                        paragraph.setAttribute('id', 'form_paragraph');
+                        var input = document.createElement('input');
+                        input.setAttribute('id', 'form_input');
+                        var txt = document.createTextNode('create');
+                        div.appendChild(paragraph);
+                        paragraph.appendChild(input);
+                        input.appendChild(txt);
+                        document.getElementById('controls').innerHTML = "We can challenge the data and verify the information in the object now...";
+                    */
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    <head>
+        <title>spa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <script src="jstut.js"></script>
+
+        <style type="text/css">
+            body {font-size: 1.6em;}
+            .hidden {display:none;}
+            .show {display:inline !important;}
+            button {
+                border: 2px solid black; background: #E5E4E2;
+                font-size: .5em; font-weight: bold; color: black;
+                padding: .8em 2em;
+                margin-top: .4em;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div><p>I welcome You !</p>
+            <p id="YourName">Son of GOD</p>
+        </div>
+        <script>
+//            var YourName = prompt("what is Your Name?");
+//            if(YourName != null){
+//               document.getElementById("YourName").innerHTML = YourName;
+//            }else{
+//                alert("please enter Your Name");
+//            }
+            
+//    for (u = 0; u <= 20; u++ ) {
+//        if((u % 2) === 0){
+//            continue;
+//        }
+//        if( u === 15){
+//            break;
+//        }
+//        
+//        document.write( u + "<br />");
+//    }
+//            document.write("You have reached number : " + u + "<br />");
+//     document.write("You're awesome!")       
+//        
+    
+//    var Customer = {name : "Bob Thomas", address : "better st", balance : 100};
+//    
+//        for (k in Customer){
+//            document.write(Customer[k] + "<br />");
+//        }
+//        
+        
+        var TomSmith = ["Tom Smith", "12 main st", 100.00];
+        
+//        var u = prompt("enter the index : ");
+//
+//        TomSmith[3] = "tsmith@google.com";
+//        document.write(u + " index : ", TomSmith[u], "<br />");    
+//        
+//        var number = [5,3,6,1,7,28];
+//        
+//        var combinedArray = number.concat(TomSmith);
+//       
+//        document.write(combinedArray);
+//        
+//        number.sort(function(x,y){ return x - y;});
+//        document.write("<br />"); 
+//        document.write("array : ", number.toString(), "<br />");
+//        document.write(TomSmith, "<br />");
+//        TomSmith.pop();
+//        document.write(TomSmith, "<br />");
+//        TomSmith.push("100");
+//        document.write(TomSmith, "<br />");
+        
+//        for(u=0; u < TomSmith.length; u++){
+//            document.write(TomSmith[u], "<br />");
+//        }
+//        
+ 
+        document.write("Awesome is GOD", "<br />", "<br />");
+    
+//        function arrayHas(arrayToCheck, value){
+//            for(u = 0; u < arrayToCheck.length; u++){
+//                if(arrayToCheck[u] === value){
+//                    return true;
+//                }
+//            }
+//            return false;
+//        }
+//
+//        var anArray = [1,2,3,4,5,6];
+//        
+//        document.write("arrayHas : ", arrayHas(anArray, 2), "<br />");
+//        
+//        function times2(num){
+//            var var2 = 2;
+//            return num * var2;
+//        }
+//        
+//        function times3(num){
+//            return num * 3;
+//        }
+//        
+//        function multiply(func, num){
+//            return func(num);
+//        }
+//        
+//        document.write("2 * 15 = ", multiply(times2, 15), "<br />");
+//        document.write("3 * 15 = ", multiply(times3, 15), "<br />");
+        
+//     function getSum(){
+//         var sum = 0;
+//         for(u = 0; u < arguments.length; u++){
+//             sum += arguments[u];
+//         }
+//         return sum;
+//     }   
+//        
+//    document.write("sum = ", getSum(1,2,3,4,5), "<br />");
+//        
+
+    function factorial(num){
+        if(num <= 1){
+            return 1;
+        } else{
+            return num * factorial(num -1);
+        }
+    }
+    
+        document.write("factorial is = ", factorial(4), "<br />");
+
+
+    // event handling
+    
+        function openAlert(mess){
+            alert(mess);
+        }
+    
+    
+    
+        </script>
+
+        
+        
+        <br /><a href="javascript:void(0)" onClick="alert('thank GOD!');">
+        click to thank GOD!</a>
+        
+        <br /><a href="javascript:void(0)" onClick="openAlert('thank GOD!');">
+        click to thank GOD!</a>
+        
+        <br /><a href="javascript:void(0)"
+            onmouseover="this.style.color='#333';"
+            onmouseout="this.style.color='#aaa';"
+            ondblclick="this.text='You double clicked ! thank GOD!'"
+            onmousedown="this.text='don\'t press too hard'"
+            onmouseup="this.text='thank You'">click to thank GOD!</a><br />
+            
+            <br />
+            
+            <label for="random">please enter some text below :<br />
+            <input type="text" id="random"
+                   onChange="var dataEntered=document.getElementById('random').
+                               value;
+                       alert('Person entered : ' + dataEntered)">
+            </label>
+            
+    <form action="#" id="sampForm">
+        
+        <input id='charInput' type="text">
+        <br />
+        
+        <p id="keyData">key data here</p>
+        
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+        
+    </form><br />
+    
+    <img src="ntt-logo.png" id="logo"><br />    
+    <button id="logoButton">get logo</button><br />
+        
+    
+    <br />
+    mouse x : <input type="text" id="mouseX"><br />
+    mouse y : <input type="text" id="mouseY"><br />
+    
+    <script>
+        function getChar(event){
+            if(event.which == null){
+                return String.fromCharCode(event.keyCode);
+            } else if (event.which !=0 && event.charCode !=0){
+                return String.fromCharCode(event.which);
+            } else {
+                return null;
+            }
+        }
+    
+        document.getElementById('charInput').onkeypress = 
+                function(event){
+                    var char = getChar(event || window.event)
+                    if(!char) return true;
+        
+        
+        document.getElementById('keyData').innerHTML = char + " was pressed.";
+        return true;
+                }
+        
+        document.getElementById('charInput').onfocus = 
+                function(event){
+                    document.getElementById('keyData').innerHTML = 
+                            "input gained focus";
+        }
+        
+        document.getElementById('charInput').onblur =
+                function(event){
+                    document.getElementById('keyData').innerHTML = 
+                            " something else was clicked";
+                
+        }
+        
+        document.getElementById('mouseX').onfocus =
+                function(event){
+                    document.getElementById('keyData').innerHTML =
+                            "mouse x has focus";
+        }
+    
+        document.getElementById('mouseY').onfocus =
+               function(event){
+                   document.getElementById('keyData').innerHTML =
+                           "mouse y has focus now";
+       }       
+    
+        document.getElementById('charInput').onselect = 
+                function(event){
+                    document.getElementById('keyData').innerHTML =
+                            "text was selected";
+        }
+    
+    </script>
+    
+            <br />
+            <br />
+            <br />
+            
+</html>

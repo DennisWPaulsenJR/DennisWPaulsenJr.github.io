@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head></head>
+<body>
+
+<style>
+#object1{
+  width: 100px;
+  height: 100px;
+  background: #Daddad;
+  border-radius: 100%;
+  animation-name: animate;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  animation-delay: 333ms;
+  animation-fill-mode: none;
+}
+
+#container {
+  width: 400px;
+  height: 600px;
+  border: solid 1px black;
+}
+
+@keyframes animate {
+  0%{ transform: translateX(0px); }
+  25% { transform: translateY(500px); }
+  50%{ transform: translateX(300px);}
+  75%{ transform: translateY(500px) translateX(300px);}
+  100%{ transform: translateX(0px);}
+  </style>
+<div id="container">
+<div id="object1"></div>
+</div>
+</body>

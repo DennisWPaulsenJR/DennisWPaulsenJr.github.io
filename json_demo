@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+created by Brad R. Allen
+-->
+<html>
+  <head>
+    <title>JSON Parse, Stringify</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/sandbox.css">
+    <script src="./scripts/scriptOutput.js"></script>
+  </head>
+  <body>
+    <div>JSON Parse, Stringify</div>
+      <textarea id="scriptOutput"></textarea>
+    <script>
+      var text = "JSON STRIGNIFY\n\n";
+      text += "JS simple object:\n" + JSON.stringify({ x: 3, y: 8 }) + '\n\n';
+      // expected output: "{"x":3,"y":8}"
+
+      text += "JS aray:\n" + JSON.stringify([new Number(3), new String('Group 3'), new Boolean(true)]) + '\n\n';
+      // expected output: "[3,"Group 3",true]"
+
+      text += "JS complex ojbect:\n" + JSON.stringify({ x: [10, undefined, function(){}, Symbol('')] }) + '\n\n';
+      // expected output: "{"x":[10,null,null,null]}"
+
+      text += "JS date ojbect:\n" + JSON.stringify(new Date(2018, 9, 2, 15, 4, 5)) + '\n\n';
+      // expected output: ""2018-10-02T15:04:05.000Z""
+      
+      text += "\n\nJSON PARSE\n\n";
+      var json = '{"result":true, "groupCount":8}' + "\n";
+      obj = JSON.parse(json);
+      
+      text += obj.groupCount + "\n\n";
+      // expected output: 8
+      
+      text += obj.result + "\n";
+      // expected output: true
+
+      show(text);
+    </script>
+  </body>
+</html>

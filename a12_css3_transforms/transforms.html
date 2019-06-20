@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <style> 
+
+
+
+       h1 {
+          color: darkgrey;
+          font-family: lato;
+          font-size: 20px;
+          font-weight: 200;
+          padding: 20px;
+          text-align: center;
+          text-transform: lowercase;
+        }
+
+ 
+
+ /* rectangles */
+        .wrap {
+          margin: 50px auto;
+          background: #eee;
+          width: 77%;
+          border-radius: 33px;
+          padding: 25px;
+          height: 200px;
+        }
+
+        .container {
+          display: inline-block;
+          width: 300px;
+          margin-left: 15%;         
+        }
+
+
+        .box {
+          border-radius: 10px;
+          height: 40px;
+          margin: 50px auto;
+          width: 80px;
+        }
+        .wrap:hover .box {
+          transform: translate(50px,50px);
+        }
+
+        .box1 {
+          background: #Dad;
+        }
+
+        .box2 {
+          background: #DadDad;
+          transition: all 2s;
+        }
+
+/*spinny square*/
+         #one{
+            width: 100px;
+            height: 100px;
+            margin-left: 33%;
+            border-radius: 33%;
+            background: #DadDad;
+            transition: width 3s, height .5s, transform 3s;
+            transition-timing-function: ease-in-out;
+            transform-origin: left bottom;
+        }
+
+        #one:hover {
+            width: 333px;
+            height: 333px;
+            transform: rotate3d(5,6,10,777deg);
+            background: #Dad;
+        }
+
+        .wrap:hover > #one {
+            width: 333px;
+            height: 333px;
+            transform: rotate(777deg);
+            background: #Dad;
+        }
+
+/* spots */
+
+
+        .wrap2 {
+             margin: 50px auto;
+             background: #eee;
+             width: 77%;
+             border-radius: 33px;
+             opacity: 0;
+            }
+
+        .container2 {
+          display: inline-block;
+          width: 150px;
+        }
+
+        .spots {
+          border-radius: 50%;
+          height: 40px;
+          margin: 50px auto;
+          width: 40px;
+          opacity: 100;
+        }
+        .wrap .spots:active {
+          transform: scale(3);
+          opacity: 100;
+        }
+
+        .spot1 {
+          background: #333;
+          border: solid white 3px;
+          transition: all 333ms;
+        }
+
+        .spot2 {
+          background: #DadDad;
+          border: solid black 3px;
+          transition: all 1s;
+        }
+
+        .spot3 {
+          background: white;
+          border: solid grey 3px;
+          transition: all 2s;
+        }
+        .spot4 {
+          background: #777;
+          border: solid #DadDad 3px;
+          transition: all 3000ms;
+        }
+
+        .spot5 {
+          background: white;
+          border: solid black 3px;
+          transition: all 3s;
+        }
+
+
+/* circles */
+
+        .circles {
+             margin: 50px auto;
+             padding: 25px;
+             background: #eee;
+             width: 77%;
+             border-radius: 33px;
+             display: flex;
+             overflow: none;
+        }
+
+        .circle, .circle0, .circle1, .circle2, .circle3, .circle4, .circle5 {
+          border-radius: 50%;
+          height: 30px;
+          width: 30px;
+          margin-left: 100px;
+          margin: 10px;
+
+        }
+        .circles:hover .circle, .circles:hover .circle0, .circles:hover .circle1, .circles:hover .circle2, .circles:hover .circle3, .circles:hover .circle4, .circles:hover .circle5 {
+          transform: translateX(700px);
+        }
+
+        .circle0 {
+          background: PaleTurquoise;
+          transition: all 1.5s linear;
+        }
+
+        .circle1 {
+          background: #111;
+          transition: all 1.5s ease;
+        }
+
+        .circle2 {
+          background: #555;
+          transition: all 1.5s ease-in;
+        }
+
+        .circle3 {
+          background: #777;
+          transition: all 1.5s ease-out;
+        }
+
+        .circle4 {
+          background: #aaa;
+          transition: all 1.5s ease-in-out;
+        }
+
+        .circle5 {
+          background: #Dad;
+          transition: all 1.5s cubic-bezier(0, -.7, 0.98, 0);
+        }
+
+        /*wrapped*/
+swrapped {
+          margin: 50px auto;
+          background: #eee;
+          width: 77%;
+          border-radius: 33px;
+          padding: 25px;
+          height: 200px;
+        }
+
+        </style>  
+
+</head>
+<body>
+
+<h1>Transition + Transform</h1>
+
+<div class="main">
+
+
+<!-- transform + transition -->
+
+            <div class="wrap">  
+
+                <div class="container">    
+                    <p><h1>simple transform</h1></p>    
+                        <div class="box1 box"></div>  
+                </div>   
+
+                <div class="container">    
+                
+                     <p><h1>transform with transition</h1></p>    
+                         <div class="box2 box"></div>  
+                </div>
+            </div>
+
+
+            <div  class="wrap">
+                <div id="one"></div>
+            </div>
+
+        <!-- spots -->
+
+            <div class="wrap">  
+                    <div class="container2">    
+                        <p><h1>333ms</h1></p>    
+                            <div class="spots spot1">
+                            </div>    
+                    </div>  
+                    <div class="container2">    
+                        <p><h1>1s</h1></p>    
+                            <div class="spots spot2">
+                            </div>  
+                    </div>   
+                    <div class="container2">    
+                         <p><h1>2s</h1></p>    
+                            <div class="spots spot3">
+                            </div>              
+                    </div>
+                    <div class="container2">    
+                         <p><h1>3000ms</h1></p>    
+                            <div class="spots spot4">
+                            </div>              
+                    </div>
+                    <div class="container2">    
+                         <p><h1>3000ms/1s = 3s</h1></p>    
+                            <div class="spots spot5">
+                            </div>              
+                    </div>                
+            </div>
+
+
+             <div class="circles">
+                  <div class="circle0"></div>
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+                  <div class="circle5"></div>
+             </div>
+
+
+              <div  class="wrapped">
+                <div id="">
+                    <p>if element is directly inside the container:</p>
+                    <p> #container:hover > #cube</p>
+                    <p>if element is next to (after containers closing tag)</p>
+                    <p>#container:hober + #cube</p>
+                    <p>if element is anywhere inside the container</p>
+                    <p>#container:hover #cube</p>
+                    <p>if the cube is a sibling of the container:</p>
+                    <p>#container:hover ~ #cube</p>
+                </div>
+            </div>
+
+</div>  
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html><head>
+  <link rel="icon" type="image/png" href="images/CHRIST.png">
+  <title>GOD IS GOOD</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="works.css">
+  </head>
+
+<body style="background-color: #DDD">
+
+    <input id="charInput" style="margin: 100px;width: 25vw;;height:25px;border:3px solid black">
+    <p id="keyData"style="margin: 100px;width: 25vw;;height:25px;border:3px solid black">event information</p>
+<script>
+function getChar(event) {
+
+  // event.which returns the key or mouse button clicked
+  if (event.which == null) {
+
+    // Return the char if not a special character
+    return String.fromCharCode(event.keyCode); // IE
+  } else if (event.which!=0 && event.charCode!=0) {
+    return String.fromCharCode(event.which);   // Other Browsers
+  } else {
+    return null; // Special Key Clicked
+  }
+}
+
+document.getElementById('charInput').onkeypress = function(event) {
+  var char = getChar(event || window.event)
+  if (!char) return false; // Special Key Clicked
+
+  document.getElementById('keyData').innerHTML = char + " was clicked";
+  return true;
+}
+
+// Change text when the input gains focus
+document.getElementById('charInput').onfocus = function(event) {
+  document.getElementById('keyData').innerHTML = "Input Gained Focus";
+}
+
+// Change text when the input loses focus
+document.getElementById('charInput').onblur = function(event) {
+  document.getElementById('keyData').innerHTML = "Input Lost Focus";
+}
+
+// Change text when text is selected
+document.getElementById('charInput').onselect = function(event) {
+  document.getElementById('keyData').innerHTML = "Text Selected";
+}
+</script>
+</body>
+</html>
